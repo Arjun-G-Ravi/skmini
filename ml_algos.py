@@ -10,6 +10,11 @@ class ml_algos: # just a sample, mainly for docs
         
 
 class LinearRegression:
+    '''
+    Parameters: lr, num_epochs, show_cost, show_cost_graph
+    Methods: fit, predict, score
+
+    '''
     def __init__(self, lr=0.01, num_epochs=100, show_cost=True, show_cost_graph=False): 
         self.lr = lr
         self.num_epochs = num_epochs
