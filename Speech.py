@@ -17,6 +17,10 @@ class STT:
         self.p = PyAudio()
 
     def listen(self):
+        '''
+        If it is all zeros, it means that you have to calibrate the silence_threshold
+        '''
+
         frames = []
         stream = self.p.open(format=self.sample_format,
                     channels=self.channels,
@@ -56,12 +60,21 @@ class STT:
         return result["text"]
 
 class TTS:
-    def speak():
-        pass
+    def speak(self, text,rate=170, volume=0.75):
+        import pyttsx3
+        engine = pyttsx3.init()
+        engine.setProperty('rate', rate) 
+        engine.setProperty('volume', volume) 
+        engine.say(text)
+        engine.runAndWait()
+        engine.stop()
 
 
+if __name__ == '__main__':
+    obj = STT()
+    voice = obj.listen()
+    ans = obj.transcribe(voice)
+    print(ans)
 
-obj = STT()
-voice = obj.listen()
-ans = obj.transcribe(voice)
-print(ans)
+    obj = TTS()
+    obj.speak(ans)
