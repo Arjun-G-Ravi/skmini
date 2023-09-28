@@ -6,6 +6,7 @@ This is a ML library that contains many ML algorithms, ready to be called as fun
  - ML Algorithms
     1. Linear Regresion
     2. Logistic Regression
+    3. MLP
     
  - STT - whisper  
  - TTS - pyttsx3 (lightweight)
