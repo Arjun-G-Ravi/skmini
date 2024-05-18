@@ -19,6 +19,7 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
        1. K-means
  - Datasets
    - Load some basic datasets like titanic, iris, etc.
+   - Ability to make datasets
  - Model_Selection
    - Select best models' weights, hyperparameters, etc.
  - Preprocessing
