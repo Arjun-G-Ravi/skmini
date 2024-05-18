@@ -4,11 +4,23 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
 ## Sklearn-mini
  - Models
     1. Regression
+       1. Linear regression
+       2. Regression Trees
+       3. MLP
     2. Classification
+       1. Logistic Regression
+       2. Classification Trees
+       3. MLP
+       4. SVM
+       5. k-nearest neighbours
     3. Dimensionality reduction
+       1. PCA?
     4. Clustering
+       1. K-means
  - Datasets
+   - Load some basic datasets like titanic, iris, etc.
  - Model_Selection
+   - Select best models' weights, hyperparameters, etc.
  - Preprocessing
      - Train-test split
   
