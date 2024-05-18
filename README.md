@@ -12,7 +12,6 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
  - Preprocessing
      - Train-test split
   
-
 #### Note
 - Built on Numpy
-- Probably no Cuda support
+- Probably no Cuda support (because of 1K Loc limit)
