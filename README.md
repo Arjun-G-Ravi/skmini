@@ -8,7 +8,7 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
     3. Dimensionality reduction
     4. Clustering
  - Datasets
- - Model selection
+ - Model_Selection
  - Preprocessing
      - Train-test split
   
