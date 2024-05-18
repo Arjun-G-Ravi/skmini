@@ -1,31 +1,10 @@
 # About
-This is a ML library that contains many ML algorithms, ready to be called as functions. Think of this as a **'mini-sklearn'**, with some additional features.
+Sklearn is a popular machine-learning library (https://github.com/scikit-learn/scikit-learn). It has a large code base with hundreds of thousands of lines of code.
 
-## Current Features and Algorithms
+intend to add many of its functionalities but remains under 1000 lines of code. This would make the library very readable.
 
- - ML Algorithms
-    1. Linear Regresion
-    2. Logistic Regression
-    3. MLP
-    
- - STT - whisper  
- - TTS - pyttsx3 (lightweight)
+## Sklearn-mini
+ - Models
+    1. Regression
+    2. Classification
 
-
-
-## To add Features and Algos
- - All basic ML algorithms
- - DL algos
- - Reinforcemt algos
- - Some way to use and finetune LLMs
-
- - Some easy way to implement UI- with pygame, curses (mainly for chat llms)
- - Huggingface support
- - Selenium web scraping for dataset
- - Some way to create datasets
- - Some graph, heatmap visualisations?
- - CPU Usage, Ram, Exec time view
- - Pandas for db ?
- - Some way to use and finetune LLMs
- - Some easy way to implement UI (mainly for llms)
- - Huggingface support
