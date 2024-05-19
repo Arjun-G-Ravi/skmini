@@ -1,7 +1,7 @@
 import numpy as np
 class LogisticRegression:
     '''
-    Parameters: lr, num_epochs, show_cost, show_cost_graph
+    Parameters: lr, num_epochs
     Methods: fit, predict, score
 
     '''
@@ -16,7 +16,7 @@ class LogisticRegression:
         self.weights = np.zeros(n)
         self.bias = 0
 
-        for epoch in range(self.num_epochs):
+        for _ in range(self.num_epochs):
             y_pred = self.predict(X)
 
             dJ_dw = (1/m)*np.dot(y_pred-y,X)
@@ -32,12 +32,10 @@ class LogisticRegression:
         return out
     
         
-    def score(self, X, y):
-        return (1/len(y))*np.sum(self.predict(X) == y)
+    def score(self, X, y): return (1/len(y))*np.sum(self.predict(X) == y)
 
-    def _predict_one(self, x):
-        return self._sigmoid(np.dot(self.weights,x) + self.bias) # f(x) = sigmoid(w*x + b)
+    def _predict_one(self, x): return self._sigmoid(np.dot(self.weights,x) + self.bias) # f(x) = sigmoid(w*x + b)
     
     def _sigmoid(self, z):
-        z = np.clip(z, -500, 500)
-        return (1/(1 + np.exp(-z)))
+        # z = np.clip(z, -500, 500)
+        return (1/(1 + np.exp(-(np.clip(z, -500, 500)))))

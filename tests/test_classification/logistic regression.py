@@ -1,4 +1,4 @@
-import set_path
+# set the correct path
 
 from skmini.classification import LogisticRegression
 from sklearn.datasets import load_breast_cancer
