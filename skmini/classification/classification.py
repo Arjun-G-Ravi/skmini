@@ -46,3 +46,8 @@ class LogisticRegression:
     def _sigmoid(self, z):
         # z = np.clip(z, -500, 500)
         return 1 / (1 + np.exp(-(np.clip(z, -500, 500))))
+ 
+    def _relu(self,z):
+        if z>0:
+            return z
+        return 0   
