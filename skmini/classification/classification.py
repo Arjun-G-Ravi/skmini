@@ -1,6 +1,4 @@
 import numpy as np
-
-
 class LogisticRegression:
     """
     Parameters: lr, num_epochs
