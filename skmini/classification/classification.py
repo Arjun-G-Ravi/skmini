@@ -48,6 +48,4 @@ class LogisticRegression:
         return 1 / (1 + np.exp(-(np.clip(z, -500, 500))))
  
     def _relu(self,z):
-        if z>0:
-            return z
-        return 0   
+        return max(0, z) 
