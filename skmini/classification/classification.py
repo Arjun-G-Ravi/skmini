@@ -42,8 +42,8 @@ class LogisticRegression:
         )  # f(x) = sigmoid(w*x + b)
 
     def _sigmoid(self, z):
-        # z = np.clip(z, -500, 500)
+
         return 1 / (1 + np.exp(-(np.clip(z, -500, 500))))
  
     def _relu(self,z):
-        return max(0, z) 
+        return max(0, z) # Devanand code
