@@ -1,10 +1,10 @@
 import numpy as np
 
+
 class LogisticRegression:
     """
     Parameters: lr, num_epochs
     Methods: fit, predict, score
-
     """
 
     def __init__(self, lr=0.01, num_epochs=1000):
