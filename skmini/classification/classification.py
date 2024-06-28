@@ -1,9 +1,10 @@
 import numpy as np
+
+
 class LogisticRegression:
     """
     Parameters: lr, num_epochs
     Methods: fit, predict, score
-
     """
 
     def __init__(self, lr=0.01, num_epochs=1000):
@@ -46,5 +47,4 @@ class LogisticRegression:
         return 1 / (1 + np.exp(-(np.clip(z, -500, 500))))
  
     def _relu(self,z):
-        return max(0, z)
-        return 0 # Devanand code
+        return max(0, z) # Devanand ji's code
