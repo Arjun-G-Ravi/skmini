@@ -48,3 +48,6 @@ class LogisticRegression:
  
     def _relu(self,z):
         return max(0, z) # Devanand ji's code
+    
+    def _leaky_relu(self, z):
+        return max(-0.01*z, z)
