@@ -1,5 +1,5 @@
 # About
-Sklearn is a popular machine-learning library (https://github.com/scikit-learn/scikit-learn). It has a large code base with hundreds of thousands of lines of code.` The primary target of this project is to make sklearn-mini with many important functionalities of sklearn, and remain under 1000 lines of code.` This would make the library very usable and readable.
+Sklearn is a popular machine-learning library (https://github.com/scikit-learn/scikit-learn) with hundreds of thousands of lines of code.` The target of this project is to make a miniaturized version of sklearn under 1000 lines of code.` This would make the library very readable for beginners.
 
 ## Sklearn-mini
  - Models
@@ -27,4 +27,4 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
   
 #### Note
 - Built on Numpy
-- Probably no Cuda support (because of 1K Loc limit)
+- Probably no Cuda support (because of the 1K Loc limit)
