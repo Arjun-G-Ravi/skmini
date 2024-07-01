@@ -32,7 +32,7 @@ class LogisticRegression:
     def predict(self, X):
         out1 = [self._predict_one(x) for x in X]
         out = [1 if i > 0.5 else 0 for i in out1]
-        return out
+        return np.array(out)
 
     def score(self, X, y):
         return (1 / len(y)) * np.sum(self.predict(X) == y)
