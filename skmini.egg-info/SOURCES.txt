@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+skmini.egg-info/PKG-INFO
+skmini.egg-info/SOURCES.txt
+skmini.egg-info/dependency_links.txt
+skmini.egg-info/top_level.txt
