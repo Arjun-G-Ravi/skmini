@@ -4,11 +4,9 @@ from skmini.classification import LogisticRegression
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 
+# Code to test linear regression is not done. This is just the one for logistic.
+
 class TestLogisticRegression(unittest.TestCase):
-
-    def setUp(self): pass
-    def tearDown(self): pass
-
     def test_train_model_breastcancer(self):
         ds1 = load_breast_cancer()
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(ds1["data"], ds1["target"])

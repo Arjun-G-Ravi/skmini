@@ -16,7 +16,8 @@ install:
 # Run tests
 .PHONY: test
 test:
-	$(PYTHON) -m pytest tests/unit_tests
+	$(PYTHON) tests/unit_tests/test_logistic_regression.py
+	$(PYTHON) tests/unit_tests/test_linear_regression.py
 
 # Clean compiled Python files
 .PHONY: clean
