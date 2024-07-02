@@ -57,6 +57,6 @@ class LinearRegression:
     def _predict_one(self, x):
         # f(x) = w*x + b
         return np.dot(self.weights, x) + self.bias
-     
-    def relu(self,x):
-        return max(0,x)
+
+    def relu(self, x):
+        return max(0, x)
