@@ -60,3 +60,7 @@ class LinearRegression:
 
     def relu(self, x):
         return max(0, x)
+    
+if __name__ == '__main__':
+    X = 1
+    model = LinearRegression()
