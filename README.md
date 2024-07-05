@@ -1,7 +1,7 @@
-# About
+# Skmini(short for sklearn-mini)
 Sklearn is a popular machine-learning library (https://github.com/scikit-learn/scikit-learn) with hundreds of thousands of lines of code.` The target of this project is to make a miniaturized version of sklearn under 1000 lines of code.` The current purpose of the library is just to act as a 'simple library' which beginners easily approach.
 
-## Skmini(short for sklearn-mini)
+## Structure
  - Models
     1. Regression
        1. Linear regression
