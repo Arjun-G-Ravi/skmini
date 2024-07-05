@@ -57,6 +57,7 @@ class LinearRegression:
     def _predict_one(self, x):
         return np.dot(self.weights, x) + self.bias
 
+
 if __name__ == "__main__":
     X = 1
     model = LinearRegression()
