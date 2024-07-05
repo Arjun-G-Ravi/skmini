@@ -8,7 +8,7 @@ class LinearRegression:
 
     """
 
-    def __init__(self, lr=0.01, num_epochs=100, show_cost=True, show_cost_graph=False):
+    def __init__(self, lr=0.01, num_epochs=100, show_cost=False, show_cost_graph=False):
         self.lr = lr
         self.num_epochs = num_epochs
         self.show_cost = show_cost
@@ -48,7 +48,7 @@ class LinearRegression:
             )
 
     def predict(self, X):
-        return [self._predict_one(x) for x in X]
+        return np.array([self._predict_one(x) for x in X])
 
     def score(self, X, y):
         # last mse error
@@ -60,7 +60,8 @@ class LinearRegression:
 
     def relu(self, x):
         return max(0, x)
-    
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     X = 1
     model = LinearRegression()

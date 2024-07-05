@@ -30,7 +30,7 @@ class MLPClassifier:
         loss = -np.mean(y * np.log(y_pred + 1e-8) + (1 - y) * np.log(1 - y_pred + 1e-8))
         print(loss)
 
-        '''backpropogation'''
+        """backpropogation"""
 
         return
 
