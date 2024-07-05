@@ -13,11 +13,12 @@ all: install test
 install:
 	$(PIP) install -r requirements.txt
 
-# Run tests
+# Run tests (also cleans caches)
 .PHONY: test
 test:
 	$(PYTHON) tests/unit_tests/test_logistic_regression.py
 	$(PYTHON) tests/unit_tests/test_linear_regression.py
+	make clean
 
 # Clean compiled Python files
 .PHONY: clean
