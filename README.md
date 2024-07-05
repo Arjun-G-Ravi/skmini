@@ -4,26 +4,26 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
 ## Structure
  - Models
     1. Regression
-       1. Linear regression
-       2. Regression Trees
-       3. MLP
+       - [x] Linear regression
+       - [ ] Regression Trees
+       - [ ] MLP
     2. Classification
-       1. Logistic Regression
-       2. Classification Trees
-       3. MLP
-       4. SVM
-       5. k-nearest neighbours
+       - [x] Logistic Regression
+       - [ ] Classification Trees
+       - [ ] MLP
+       - [ ] SVM
+       - [ ] k-nearest neighbours
     3. Dimensionality reduction
-       1. PCA?
+       - [ ] PCA?
     4. Clustering
-       1. K-means
+       - [ ] K-means
  - Datasets
-   - Load some basic datasets like titanic, iris, etc.
-   - Ability to make datasets
+   - [ ] Load some basic datasets like titanic, iris, etc.
+   - [ ] Ability to make datasets
  - Model_Selection
-   - Select best models' weights, hyperparameters, etc.
+   - [ ] Select best models' weights, hyperparameters, etc.
  - Preprocessing
-     - Train-test split
+     - [ ] Train-test split
   
 #### Note
 - Built on Numpy

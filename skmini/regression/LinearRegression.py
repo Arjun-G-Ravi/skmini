@@ -55,12 +55,7 @@ class LinearRegression:
         return self.loss_per_epoch[-1]
 
     def _predict_one(self, x):
-        # f(x) = w*x + b
         return np.dot(self.weights, x) + self.bias
-
-    def relu(self, x):
-        return max(0, x)
-
 
 if __name__ == "__main__":
     X = 1
