@@ -1,1 +1,1 @@
-from .regression import LinearRegression
+from .LinearRegression import LinearRegression
