@@ -31,6 +31,8 @@ class TestLinearRegression(unittest.TestCase):
             prediction, np.ndarray
         ), "The accuracy should be a NumPy array"
 
+def test_check():
+    assert 1+1 == 2
 
 if __name__ == "__main__":
     unittest.main()
