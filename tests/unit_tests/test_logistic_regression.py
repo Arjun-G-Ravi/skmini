@@ -3,19 +3,20 @@ from skmini.classification import LogisticRegression
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 
-class TestLogisticRegression():
+
+class TestLogisticRegression:
     def test_train_model_breastcancer(self):
         ds1 = load_breast_cancer()
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
             ds1["data"], ds1["target"]
         )
-        model = LogisticRegression()
+        model = LogisticRegression(verbose=True)
+
         model.fit(self.X_train, self.y_train)
         train_score = model.score(self.X_train, self.y_train)
         test_score = model.score(self.X_test, self.y_test)
         assert type(train_score) == np.float64
         assert type(test_score) == np.float64
-
 
     def test_train_custom_data(self):
         X = np.array([[3], [5], [7], [9], [12]])
@@ -24,3 +25,9 @@ class TestLogisticRegression():
         model.fit(X, y)
         prediction = model.predict(X)
         assert type(prediction) == np.ndarray
+
+
+if __name__ == "__main__":
+    f = TestLogisticRegression()
+    f.test_train_model_breastcancer()
+    f.test_train_custom_data()

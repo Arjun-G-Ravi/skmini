@@ -8,11 +8,10 @@ class LinearRegression:
 
     """
 
-    def __init__(self, lr=0.01, num_epochs=100, show_cost=False, show_cost_graph=False):
+    def __init__(self, lr=0.01, num_epochs=100, verbose=False):
         self.lr = lr
         self.num_epochs = num_epochs
-        self.show_cost = show_cost
-        self.show_cost_graph = show_cost_graph
+        self.verbose = verbose
         self.weights = None
         self.bias = None
 
@@ -27,8 +26,8 @@ class LinearRegression:
         for epoch in range(self.num_epochs):
             y_pred = self.predict(X)
             mse_cost = (1 / m) * np.sum((y_pred - y) ** 2)  # Cost function J
-            if self.show_cost:
-                print(f"Epoch={epoch+1}, Cost={mse_cost}")
+            if self.verbose:
+                print(f"Epoch={epoch+1}, MSE={mse_cost}")
             self.loss_per_epoch.append(mse_cost)
 
             dJ_dw = (1 / m) * np.dot(y_pred - y, X)
@@ -36,16 +35,6 @@ class LinearRegression:
 
             self.weights -= self.lr * dJ_dw
             self.bias -= self.lr * dJ_db
-
-        if self.show_cost_graph:
-            from matplotlib.pyplot import plot
-
-            plot(
-                [i for i in range(1, len(self.loss_per_epoch) + 1)],
-                self.loss_per_epoch,
-                color="r",
-                marker=".",
-            )
 
     def predict(self, X):
         return np.array([self._predict_one(x) for x in X])

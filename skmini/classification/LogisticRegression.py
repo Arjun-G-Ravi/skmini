@@ -7,11 +7,12 @@ class LogisticRegression:
     Methods: fit, predict, score
     """
 
-    def __init__(self, lr=0.01, num_epochs=1000):
+    def __init__(self, lr=0.01, num_epochs=100, verbose=False):
         self.lr = lr
         self.num_epochs = num_epochs
         self.weights = None
         self.bias = None
+        self.verbose = verbose
 
     def fit(self, X, y):
         m, n = (
@@ -20,8 +21,11 @@ class LogisticRegression:
         self.weights = np.zeros(n)
         self.bias = 0
 
-        for _ in range(self.num_epochs):
+        for epoch in range(self.num_epochs):
             y_pred = self.predict(X)
+            # where is the loss
+            if self.verbose:
+                print(f"Epoch={epoch+1}")
 
             dJ_dw = (1 / m) * np.dot(y_pred - y, X)
             dJ_db = (1 / m) * np.sum(y_pred - y)
