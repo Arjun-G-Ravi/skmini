@@ -1,11 +1,9 @@
-import unittest
 import numpy as np
 from skmini.regression import LinearRegression
 from sklearn.datasets import make_regression
 from sklearn.model_selection import train_test_split
 
-
-class TestLinearRegression(unittest.TestCase):
+class TestLinearRegression():
     def test_train_model_make_regression(self):
         X, y = make_regression(n_samples=100, n_features=10, noise=0.1)
 
@@ -14,12 +12,9 @@ class TestLinearRegression(unittest.TestCase):
         model.fit(self.X_train, self.y_train)
         train_score = model.score(self.X_train, self.y_train)
         test_score = model.score(self.X_test, self.y_test)
-        self.assertIsInstance(
-            train_score, np.float64
-        ), "The accuracy should be a NumPy array"
-        self.assertIsInstance(
-            test_score, np.float64
-        ), "The accuracy should be a NumPy array"
+
+        assert type(train_score) == np.float64
+        assert type(test_score) == np.float64
 
     def test_train_custom_data(self):
         X = np.array([[3], [5], [7], [9], [12]])
@@ -27,12 +22,4 @@ class TestLinearRegression(unittest.TestCase):
         model = LinearRegression(num_epochs=200)
         model.fit(X, y)
         prediction = model.predict(X)
-        self.assertIsInstance(
-            prediction, np.ndarray
-        ), "The accuracy should be a NumPy array"
-
-def test_check():
-    assert 1+1 == 2
-
-if __name__ == "__main__":
-    unittest.main()
+        assert type(prediction) == np.ndarray
