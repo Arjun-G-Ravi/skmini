@@ -43,8 +43,8 @@ jobs:
     #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-      export PYTHONPATH="${PYTHONPATH}:${{ runner.workspace }}/skmini"
-      pytest
+        export PYTHONPATH="${PYTHONPATH}:${{ runner.workspace }}/skmini"
+        pytest
 
     - name: Print Python path
       run: echo $PYTHONPATH
