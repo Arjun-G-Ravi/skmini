@@ -28,3 +28,7 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
 #### Note
 - Built on Numpy
 - Probably no Cuda support (because of the 1K Loc limit)
+
+### TO-DO
+- [ ] Write more asserts in tests to ensure models work well
+- [ ] Use decorator or something to initialize model and stuff in test functions
