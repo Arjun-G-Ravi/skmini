@@ -29,7 +29,7 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
         python -m pip install git+https://github.com/Arjun-G-Ravi/skmini.git
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install -r requirements.txt
     
     - name: Verify installation
       run: pip list
@@ -41,9 +41,10 @@ jobs:
     #     flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
     #     # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
     #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with UnitTest
+    - name: Test with pytest
       run: |
-        pytest
+      export PYTHONPATH="${PYTHONPATH}:${{ runner.workspace }}/skmini"
+      pytest
 
     - name: Print Python path
       run: echo $PYTHONPATH
