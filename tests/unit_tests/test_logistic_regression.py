@@ -21,7 +21,7 @@ class TestLogisticRegression:
     def test_train_custom_data(self):
         X = np.array([[3], [5], [7], [9], [12]])
         y = np.array([0, 0, 1, 1, 1])
-        model = LogisticRegression(num_epochs=200)
+        model = LogisticRegression(num_epochs=200,verbose=True )
         model.fit(X, y)
         prediction = model.predict(X)
         assert type(prediction) == np.ndarray
@@ -30,4 +30,6 @@ class TestLogisticRegression:
 if __name__ == "__main__":
     f = TestLogisticRegression()
     f.test_train_model_breastcancer()
+    print(' - '*40)
     f.test_train_custom_data()
+    
