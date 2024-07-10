@@ -7,7 +7,7 @@ class LogisticRegression:
     Methods: fit, predict, score
     """
 
-    def __init__(self, lr=0.01, num_epochs=100, verbose=False):
+    def __init__(self, lr=0.1, num_epochs=100, verbose=False):
         self.lr = lr
         self.num_epochs = num_epochs
         self.weights = None
@@ -30,6 +30,7 @@ class LogisticRegression:
 
             dJ_dw = (1 / m) * np.dot(y_pred - y, X)
             dJ_db = (1 / m) * np.sum(y_pred - y)
+            # print(dJ_db, dJ_dw)
             self.weights -= self.lr * dJ_dw
             self.bias -= self.lr * dJ_db
 
