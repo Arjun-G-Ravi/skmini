@@ -7,7 +7,7 @@ class LogisticRegression:
     Methods: fit, predict, score
     """
 
-    def __init__(self, lr=0.0001, num_epochs=100, verbose=False):
+    def __init__(self, lr=0.01, num_epochs=100, verbose=False):
         self.lr = lr
         self.num_epochs = num_epochs
         self.weights = None
@@ -38,8 +38,12 @@ class LogisticRegression:
         # out = [1 if i > 0.5 else 0 for i in out1]
         return np.array(out1)
 
+    def _threshold(self, arr, threshold_val):
+        return arr>threshold_val
+
     def score(self, X, y):
-        return (1 / len(y)) * np.sum(self.predict(X) == y)
+        return (1 / len(y)) * np.sum(self._threshold(self.predict(X), 0.5) == y)
+
 
     def _predict_one(self, x):
         return self._sigmoid(
