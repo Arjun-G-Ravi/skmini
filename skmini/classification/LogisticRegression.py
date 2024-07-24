@@ -25,8 +25,9 @@ class LogisticRegression:
             y_pred = self.predict(X)
             epsilon = 1e-15
             y_pred = np.clip(y_pred, epsilon, 1 - epsilon)
-            loss = (-1/m)*np.sum(y*np.log(y_pred) + (1-y)*np.log(1-y_pred))
-            if self.verbose: print(f"Epoch={epoch+1} Loss = {loss}")
+            loss = (-1 / m) * np.sum(y * np.log(y_pred) + (1 - y) * np.log(1 - y_pred))
+            if self.verbose:
+                print(f"Epoch={epoch+1} Loss = {loss}")
 
             dJ_dw = (1 / m) * np.dot(y_pred - y, X)
             dJ_db = (1 / m) * np.sum(y_pred - y)
@@ -40,11 +41,10 @@ class LogisticRegression:
         return np.array(out1)
 
     def _threshold(self, arr, threshold_val):
-        return arr>threshold_val
+        return arr > threshold_val
 
     def score(self, X, y):
         return (1 / len(y)) * np.sum(self._threshold(self.predict(X), 0.5) == y)
-
 
     def _predict_one(self, x):
         return self._sigmoid(
