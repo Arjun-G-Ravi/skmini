@@ -56,6 +56,7 @@ class Value:
             if child.op:
                 child.backprop()
 
+
 class Neuron:
     def __init__(self):
         self.w = None
