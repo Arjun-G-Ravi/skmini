@@ -41,3 +41,5 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
 ### TO-DO
 - [ ] Write more asserts in tests to ensure models work well
 - [ ] Use decorator or something to initialize model and stuff in test functions
+- [ ] The download path mightnot be valid for non-linux (this could be aldready solved)
+- [ ] Add certificate verification when downloading datasets
