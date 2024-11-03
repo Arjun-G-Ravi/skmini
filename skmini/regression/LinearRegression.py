@@ -16,10 +16,13 @@ class LinearRegression:
         self.bias = None
 
     def fit(self, X, y):
+        X = np.array(X) # maybe check before casting
+        y = np.array(y)
+        if len(X.shape) == 1: X = np.reshape(X, (-1, 1))
         m, n = (
             X.shape
         )  # m is the number of training data and n is the number of features
-        self.weights = np.zeros(n)
+        self.weights = np.random.randn(n)
         self.bias = 0
         self.loss_per_epoch = []
 
@@ -45,8 +48,3 @@ class LinearRegression:
 
     def _predict_one(self, x):
         return np.dot(self.weights, x) + self.bias
-
-
-if __name__ == "__main__":
-    X = 1
-    model = LinearRegression()

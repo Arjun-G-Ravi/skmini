@@ -15,11 +15,15 @@ class LogisticRegression:
         self.verbose = verbose
 
     def fit(self, X, y):
+        X = np.array(X) # maybe check before casting
+        y = np.array(y)
+        if len(X.shape) == 1: X = np.reshape(X, (-1, 1))
         m, n = (
             X.shape
         )  # m is the number of training data and n is the number of features
         self.weights = np.zeros(n)
         self.bias = 0
+        print(X, y)
 
         for epoch in range(self.num_epochs):
             y_pred = self.predict(X)

@@ -1,2 +1,2 @@
 numpy
-scikit-learn
+scikit-learn # just for testing during development

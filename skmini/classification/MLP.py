@@ -1,3 +1,5 @@
+# will be developed in future, maybe
+'''
 import numpy as np
 
 
@@ -115,3 +117,4 @@ if __name__ == "__main__":
     print(a, b, c, d, e, f)
 
     MLP([5, 3, 1])
+'''
