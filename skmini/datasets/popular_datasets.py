@@ -20,6 +20,5 @@ def load_iris(force_download=False):
             'target_names':np.array(list(target_dict.keys())),
             'feature_names':['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)',  'petal width (cm)']}
 
-
-
-        
+def load_diabetes(force_download=False):
+    path = download_to_cache("https://github.com/plotly/datasets/raw/master/diabetes.csv", 'diabetes', force_download=force_download)

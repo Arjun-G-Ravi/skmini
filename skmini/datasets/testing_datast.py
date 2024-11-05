@@ -1,4 +1,5 @@
-from skmini.datasets import load_iris
+from skmini.datasets import load_diabetes
 
-i = load_iris()
+i = load_diabetes()
 print(i)
+    
