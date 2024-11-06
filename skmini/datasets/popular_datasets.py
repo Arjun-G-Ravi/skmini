@@ -21,4 +21,15 @@ def load_iris(force_download=False):
             'feature_names':['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)',  'petal width (cm)']}
 
 def load_diabetes(force_download=False):
-    path = download_to_cache("https://github.com/plotly/datasets/raw/master/diabetes.csv", 'diabetes', force_download=force_download)
+    path = download_to_cache("https://github.com/scikit-learn/scikit-learn/raw/main/sklearn/datasets/data/diabetes_data_raw.csv.gz", 'diabetes', force_download=force_download)
+    with open(path) as f:
+        dataset = f.read()
+    # ds = []
+    # for line in dataset.split('\n'):
+    #     ds.append(line.split(','))
+    # print(np.array(ds[0]))
+    # print(np.array(ds[1:], dtype=float))
+
+    # return {'data':np.array(ds[1:],dtype=float), 
+    #         }
+
