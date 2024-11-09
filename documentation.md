@@ -6,3 +6,5 @@
   - regression
     - LinearRegression
   - datasets
+    - load_diabetes()
+    - load_iris()
