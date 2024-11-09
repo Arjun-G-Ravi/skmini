@@ -4,6 +4,8 @@ import requests
 import zipfile
 import tarfile
 import shutil
+import gzip
+
 from warnings import filterwarnings
 filterwarnings('ignore')
 def download_to_cache(url, filename, force_download=False):
@@ -40,6 +42,10 @@ def download_to_cache(url, filename, force_download=False):
                     file.write(chunk)
         print(f"Downloaded file to {file_path}")
 
+
+        def is_gzip(file_path):
+            with open(file_path, 'rb') as f:
+                return f.read(2) == b'\x1f\x8b'
         # now that it is downloaded, we might want to decompress the file
         if tarfile.is_tarfile(file_path):
             try:
@@ -56,26 +62,9 @@ def download_to_cache(url, filename, force_download=False):
                     os.mkdir(file_path)
                     zip_ref.extractall(file_path)
             except: print('Decompression Failed.')
-        print(file_path)
-
-        import gzip
-        import shutil
-
-        def is_gzip(file_path):
-            with open(file_path, 'rb') as f:
-                return f.read(2) == b'\x1f\x8b'
 
 
-        # file_path = str(file_path)
-        import gzip
-        import shutil
-        import os
-
-        def is_gzip(file_path):
-            with open(file_path, 'rb') as f:
-                return f.read(2) == b'\x1f\x8b'
-
-        if is_gzip(file_path):
+        elif is_gzip(file_path):
             print('is gzip')
             try:
                 decompressed_path = file_path[:-3]  # Remove '.gz' from the filename
@@ -86,8 +75,7 @@ def download_to_cache(url, filename, force_download=False):
                 print("Decompression successful.")
             except Exception as e:
                 print(f"Decompression Failed: {e}")
-        else:
-            print("The file is not gzip encoded.")
+        
 
 
         # if is_gzip(file_path):

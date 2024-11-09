@@ -22,6 +22,7 @@ def load_iris(force_download=False):
 
 def load_diabetes(force_download=False):
     path = download_to_cache("https://github.com/scikit-learn/scikit-learn/raw/main/sklearn/datasets/data/diabetes_data_raw.csv.gz", 'diabetes', force_download=force_download)
+    print(path)
     with open(path) as f:
         dataset = f.read()
     # ds = []
