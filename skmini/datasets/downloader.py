@@ -5,9 +5,9 @@ import zipfile
 import tarfile
 import shutil
 import gzip
-
 from warnings import filterwarnings
 filterwarnings('ignore')
+
 def download_to_cache(url, filename, force_download=False):
     def _get_custom_cache_dir():
         custom_cache_dir = Path.home() / ".cache"/ "skmini"/ "datasets"
@@ -55,6 +55,7 @@ def download_to_cache(url, filename, force_download=False):
                 tar.close()
             except:
                 print('Decompression Failed.')
+
         elif zipfile.is_zipfile(file_path): # TODO: change to endswith in the future, which doesnt require us loading a library
             try:
                 with zipfile.ZipFile(file_path, 'r') as zip_ref:
@@ -67,11 +68,12 @@ def download_to_cache(url, filename, force_download=False):
         elif is_gzip(file_path):
             print('is gzip')
             try:
-                decompressed_path = file_path[:-3]  # Remove '.gz' from the filename
+                print(file_path)
+                decompressed_path = file_path  # Remove '.gz' from the filename
                 with gzip.open(file_path, 'rb') as f_in:
-                    with open(decompressed_path, 'wb') as f_out:
+                    with open(decompressed_path/"diabetes_data.csv", 'wb') as f_out:
                         shutil.copyfileobj(f_in, f_out)
-                # os.remove(file_path)  # Uncomment to remove the original .gz file if needed
+                os.remove(file_path)  # Uncomment to remove the original .gz file if needed
                 print("Decompression successful.")
             except Exception as e:
                 print(f"Decompression Failed: {e}")
