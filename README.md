@@ -15,6 +15,16 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
        - [ ] PCA?
     4. Clustering
        - [ ] K-means
+    5. Preprocessing
+       - [ ] StandardScaler # standardisation
+       - [ ] MinMaxScaler # normalization
+       - [ ] Feature Encoding: Include LabelEncoder and OneHotEncoder
+       - [ ] Principal Component Analysis # Dimensionality Reduction
+       - [ ] Singular Value Decomposition # Dimensionality Reduction
+    6. Model selection
+       - [ ] train_test_split
+       - [ ] grid search
+       - [ ] pipeline framework
  - Datasets
    - [ ] Load some basic datasets like titanic, iris, etc.
      - [ ] Tabular
@@ -26,17 +36,15 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
    - [ ] Image
      - [ ] MNIST
      - [ ] cifar10
-     - [ ] Some way to easily get kaggle dataset loaded
    - [ ] Ability to make datasets
        - [ ] Make regression, make classification 
    - Model_Selection
    - [ ] Select best models' weights, hyperparameters, etc.
- - Preprocessing
      - [ ] Train-test split
   
 #### Note
 - Built on Numpy
-- Probably no Cuda support (because of the 1K Loc limit)
+- no Cuda support (because of the 1K Loc limit)
 
 ### TO-DO
 - [ ] Write more asserts in tests to ensure models work well
