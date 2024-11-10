@@ -27,21 +27,17 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
        - [ ] grid search
        - [ ] pipeline framework
  - Datasets
-   - [ ] Load some basic datasets like titanic, iris, etc.
-     - [ ] Tabular
-      - [ ] Titanitc
-      - [ ] Iris
-     - [ ] House price prediction
+   - [x] Load some basic datasets for regression and classification 
+      - [x] Iris
+      - [x] Diabetes
    - [ ] NLP
      - [ ] Squad
    - [ ] Image
      - [ ] MNIST
      - [ ] cifar10
    - [ ] Ability to make datasets
-       - [ ] Make regression, make classification 
-   - Model_Selection
-   - [ ] Select best models' weights, hyperparameters, etc.
-     - [ ] Train-test split
+       - [ ] Make regression
+       - [ ] make classification 
   
 #### Note
 - Built on Numpy
