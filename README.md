@@ -21,7 +21,8 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
        - [ ] Feature Encoding: Include LabelEncoder and OneHotEncoder
        - [ ] Principal Component Analysis # Dimensionality Reduction
        - [ ] Singular Value Decomposition # Dimensionality Reduction
-    6. Model selection
+       - [ ] Regualisation # some method
+    6. Model selection 
        - [ ] train_test_split
        - [ ] grid search
        - [ ] pipeline framework
