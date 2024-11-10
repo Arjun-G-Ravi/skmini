@@ -8,7 +8,7 @@ import gzip
 from warnings import filterwarnings
 filterwarnings('ignore')
 
-def download_to_cache(url, filename, force_download=False):
+def download_to_cache(url, filename,format=None, force_download=False):
     def _get_custom_cache_dir():
         custom_cache_dir = Path.home() / ".cache"/ "skmini"/ "datasets"
         os.makedirs(custom_cache_dir, exist_ok=True)
@@ -42,7 +42,6 @@ def download_to_cache(url, filename, force_download=False):
                     file.write(chunk)
         print(f"Downloaded file to {file_path}")
 
-
         def is_gzip(file_path):
             with open(file_path, 'rb') as f:
                 return f.read(2) == b'\x1f\x8b'
@@ -66,12 +65,10 @@ def download_to_cache(url, filename, force_download=False):
 
 
         elif is_gzip(file_path):
-            print('is gzip')
+            zip_path =  file_path.parent / (f'{filename}' + format)
             try:
-                print(file_path)
-                decompressed_path = file_path  # Remove '.gz' from the filename
                 with gzip.open(file_path, 'rb') as f_in:
-                    with open(decompressed_path/"diabetes_data.csv", 'wb') as f_out:
+                    with open(zip_path, 'wb') as f_out:
                         shutil.copyfileobj(f_in, f_out)
                 os.remove(file_path)  # Uncomment to remove the original .gz file if needed
                 print("Decompression successful.")
@@ -79,32 +76,4 @@ def download_to_cache(url, filename, force_download=False):
                 print(f"Decompression Failed: {e}")
         
 
-
-        # if is_gzip(file_path):
-        #     try:
-        #         print('gzip')
-        #         with gzip.open(file_path, 'rb') as f_in:
-        #                 with open(file_path[:-3], 'wb') as f_out:
-        #                     shutil.copyfileobj(f_in, f_out)
-        #         os.remove(file_path)
-
-        #     except:
-        #         print('Decompression Failed.')
-        # else:
-        #     print('other format')
-
-        # elif file_path.endswith('.gz'):
-        #     print('here')
-        #     import gzip
-        #     import shutil
-
-        #     if file_path.endswith('.gz'):
-        #         try:
-        #             with gzip.open(file_path, 'rb') as f_in:
-        #                 with open(file_path[:-3], 'wb') as f_out:
-        #                     shutil.copyfileobj(f_in, f_out)
-        #             os.remove(file_path)
-        #         except:
-        #             print('Decompression Failed.')
-        #     print('other format')
     return file_path
