@@ -76,8 +76,10 @@ def load_digits(force_download=False):
         'test_target': y_test,
     }
 
+def load_cifar10(force_download=False):
+    path = download_to_cache('https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz', 'cifar10', force_download=force_download)
 
+    print(path)
 
 if __name__ == '__main__':
-    i = load_digits(force_download=False)
-    # print(i)
+    pass

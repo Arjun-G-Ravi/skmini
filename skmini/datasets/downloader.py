@@ -6,6 +6,7 @@ import tarfile
 import shutil
 import gzip
 from warnings import filterwarnings
+import sys
 filterwarnings('ignore')
 
 def download_to_cache(url, filename,format=None, force_download=False):
@@ -36,11 +37,27 @@ def download_to_cache(url, filename,format=None, force_download=False):
             print(f"Error: {e.strerror}")
 
         response = requests.get(url, stream=True, verify=False)
+        print('Downloading dataset...')
+        total_size = int(response.headers.get('content-length', 0))
+
         with open(file_path, "wb") as file:
+            downloaded = 0
             for chunk in response.iter_content(chunk_size=8192):
                 if chunk:
                     file.write(chunk)
-        print(f"Downloaded file to {file_path}")
+                    downloaded += len(chunk)
+                    
+                    # Calculate the download progress as a percentage
+                    percent = (downloaded / total_size) * 100
+                    
+                    # Print progress bar
+                    bar_length = 40  # Length of the progress bar
+                    block = int(round(bar_length * downloaded / total_size))
+                    progress = f"\r[{'#' * block}{'-' * (bar_length - block)}] {percent:.2f}%"
+                    sys.stdout.write(progress)
+                    sys.stdout.flush()
+
+        print(f"\nDownloaded file to {file_path}")
 
         def is_gzip(file_path):
             with open(file_path, 'rb') as f:
@@ -74,6 +91,4 @@ def download_to_cache(url, filename,format=None, force_download=False):
                 print("Decompression successful.")
             except Exception as e:
                 print(f"Decompression Failed: {e}")
-        
-
     return file_path
