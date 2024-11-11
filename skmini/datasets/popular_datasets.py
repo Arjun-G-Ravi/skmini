@@ -1,4 +1,4 @@
-from downloader import download_to_cache
+from .downloader import download_to_cache
 import numpy as np
 
 def load_iris(force_download=False):
@@ -30,13 +30,10 @@ def load_diabetes(force_download=False):
         i = line.split(' ')
         if len(i) == 10:
             ds.append(i)
-    print('target')
     with open(path_y) as f:
         dataset_y = f.read()
     ds_y = []
-    for line in dataset_y.split('\n'):
-        # i = line.split(' ')
-        
+    for line in dataset_y.split('\n'):        
         if len(line) == 24:
             ds_y.append(float(line))
 
@@ -46,5 +43,41 @@ def load_diabetes(force_download=False):
             'target':np.array(ds_y,dtype=float), 
             }
 
+def load_digits(force_download=False):
+    path = download_to_cache('https://archive.ics.uci.edu/static/public/80/optical+recognition+of+handwritten+digits.zip', 'mnist', force_download=force_download)
+    with open(path/'optdigits.tra') as f:
+        dataset = f.read()
+    train_data = dataset.split('\n')
+    mnist_train = []
+    for i in train_data:
+        if i:
+            mnist_train.append(i.split(','))
+    with open(path/'optdigits.tes') as f:
+        dataset = f.read()
+    test_data = dataset.split('\n')
+    mnist_test = []
+    for i in test_data:
+        if i:
+            mnist_test.append(i.split(','))
+    feature_name = ['pixel_0_0', 'pixel_0_1', 'pixel_0_2', 'pixel_0_3', 'pixel_0_4', 'pixel_0_5', 'pixel_0_6', 'pixel_0_7', 'pixel_1_0', 'pixel_1_1', 'pixel_1_2', 'pixel_1_3', 'pixel_1_4', 'pixel_1_5', 'pixel_1_6', 'pixel_1_7', 'pixel_2_0', 'pixel_2_1', 'pixel_2_2', 'pixel_2_3', 'pixel_2_4', 'pixel_2_5', 'pixel_2_6', 'pixel_2_7', 'pixel_3_0', 'pixel_3_1', 'pixel_3_2', 'pixel_3_3', 'pixel_3_4', 'pixel_3_5', 'pixel_3_6', 'pixel_3_7', 'pixel_4_0', 'pixel_4_1', 'pixel_4_2', 'pixel_4_3', 'pixel_4_4', 'pixel_4_5', 'pixel_4_6', 'pixel_4_7', 'pixel_5_0', 'pixel_5_1', 'pixel_5_2', 'pixel_5_3', 'pixel_5_4', 'pixel_5_5', 'pixel_5_6', 'pixel_5_7', 'pixel_6_0', 'pixel_6_1', 'pixel_6_2', 'pixel_6_3', 'pixel_6_4', 'pixel_6_5', 'pixel_6_6', 'pixel_6_7', 'pixel_7_0', 'pixel_7_1', 'pixel_7_2', 'pixel_7_3', 'pixel_7_4', 'pixel_7_5', 'pixel_7_6', 'pixel_7_7']
+    target_name = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    X_train = np.array(mnist_train, dtype=float)[:,:-1].reshape(-1, 8,8)
+    y_train = np.array(mnist_train, dtype=int)[:,-1]
+
+    X_test = np.array(mnist_test, dtype=float)[:,:-1].reshape(-1, 8,8)
+    y_test = np.array(mnist_test, dtype=int)[:,-1]
+    return {
+        'data': X_train,
+        'target': y_train,
+        'feature_names':  feature_name,
+        'target_name': target_name,
+        'test_data': X_test,
+        'test_target': y_test,
+    }
+
+
+
 if __name__ == '__main__':
-    i = load_diabetes(force_download=True)
+    i = load_digits(force_download=False)
+    # print(i)
