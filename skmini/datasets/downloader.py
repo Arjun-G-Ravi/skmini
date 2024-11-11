@@ -47,16 +47,8 @@ def download_to_cache(url, filename,format=None, force_download=False):
                     file.write(chunk)
                     downloaded += len(chunk)
                     
-                    # Calculate the download progress as a percentage
-                    percent = (downloaded / total_size) * 100
-                    
-                    # Print progress bar
-                    bar_length = 40  # Length of the progress bar
-                    block = int(round(bar_length * downloaded / total_size))
-                    progress = f"\r[{'#' * block}{'-' * (bar_length - block)}] {percent:.2f}%"
-                    sys.stdout.write(progress)
-                    sys.stdout.flush()
-
+                    from .helper import show_progress_bar
+                    show_progress_bar(downloaded, total_size)
         print(f"\nDownloaded file to {file_path}")
 
         def is_gzip(file_path):
