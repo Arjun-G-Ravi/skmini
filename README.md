@@ -31,7 +31,8 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
       - [x] Iris
       - [x] Diabetes
    - [ ] NLP
-     - [ ] Squad
+     - [x] Squad
+     - [ ] imdb
    - [x] Image
      - [x] MNIST
      - [x] cifar10

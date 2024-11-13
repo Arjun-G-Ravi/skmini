@@ -123,5 +123,10 @@ def load_squad(force_download=False):
     with open(path, 'r') as f:
         text = json.load(f)
     return text
+
+def load_imdb(force_download=False):
+    path = download_to_cache('https://datasets.imdbws.com/title.ratings.tsv.gz', 'imdb', force_download=force_download)
+    
+
 if __name__ == '__main__':
     pass
