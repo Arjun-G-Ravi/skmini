@@ -117,6 +117,11 @@ def load_cifar10(force_download=False):
         'test_target': y_test,
     }
 
-
+def load_squad(force_download=False):
+    path = download_to_cache('https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v1.1.json', 'squad', force_download=force_download)
+    import json
+    with open(path, 'r') as f:
+        text = json.load(f)
+    return text
 if __name__ == '__main__':
     pass

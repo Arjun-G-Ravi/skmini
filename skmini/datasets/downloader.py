@@ -46,8 +46,9 @@ def download_to_cache(url, filename,format=None, force_download=False):
                 if chunk:
                     file.write(chunk)
                     downloaded += len(chunk)
-                    
-                    show_progress_bar(downloaded, total_size)
+                    if not downloaded > total_size:
+                        # actually some bug here. squad dataset's progress bar goes out of range
+                        show_progress_bar(downloaded, total_size)
         print(f"\nDownloaded file to {file_path}")
 
         def is_gzip(file_path):

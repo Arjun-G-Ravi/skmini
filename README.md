@@ -32,9 +32,9 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
       - [x] Diabetes
    - [ ] NLP
      - [ ] Squad
-   - [ ] Image
-     - [ ] MNIST
-     - [ ] cifar10
+   - [x] Image
+     - [x] MNIST
+     - [x] cifar10
    - [ ] Ability to make datasets
        - [ ] Make regression
        - [ ] make classification 
