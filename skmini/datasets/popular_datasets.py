@@ -77,9 +77,46 @@ def load_digits(force_download=False):
     }
 
 def load_cifar10(force_download=False):
-    path = download_to_cache('https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz', 'cifar10', force_download=force_download)
-
+    # https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdfhttps://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf
+    path = download_to_cache('https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz', 'cifar10', force_download=force_download)/'cifar-10-batches-py'
     print(path)
+    import pickle
+    import os
+    files = os.listdir(path)
+    X_train, y_train = [], []
+    X_test, y_test = [], []
+    def unpickle(file):
+        with open(file, 'rb') as f:
+            data = pickle.load(f, encoding='bytes')
+        return data
+    for f in files:
+        if '.' not in f: # to ignore batches.meta and readme.html
+            if 'test' in f:
+                print(path/f)
+                data = unpickle(path/f)
+                print(data.keys())
+                X_test.extend(data[b'data'])
+                y_test.extend(data[b'labels'])
+            else:
+                print(path/f)
+                data = unpickle(path/f)
+                print(data.keys())
+                X_train.extend(data[b'data'])
+                y_train.extend(data[b'labels'])
+
+    X_train = np.array(X_train, dtype=float)
+    X_test = np.array(X_test, dtype=float)
+    y_train = np.array(y_train, dtype=float)
+    y_test = np.array(y_test, dtype=float)
+    # return data
+    return {
+        'data': X_train,
+        'target': y_train,
+        'target_names': ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck'],
+        'test_data': X_test,
+        'test_target': y_test,
+    }
+
 
 if __name__ == '__main__':
     pass
