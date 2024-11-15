@@ -74,12 +74,13 @@ def download_to_cache(url, filename,format=None, force_download=False):
 
 
         elif is_gzip(file_path):
-            zip_path =  file_path.parent / (f'{filename}' + format)
+            if format: zip_path =  file_path.parent / (f'{filename}' + format)
+            else: zip_path =  file_path.parent / (f'{filename}')
             try:
-                with gzip.open(file_path, 'rb') as f_in:
-                    with open(zip_path, 'wb') as f_out:
-                        shutil.copyfileobj(f_in, f_out)
-                os.remove(file_path)  # Uncomment to remove the original .gz file if needed
+                # with gzip.open(file_path, 'rb') as f_in:
+                #     with open(zip_path, 'wb') as f_out:
+                #         shutil.copyfileobj(f_in, f_out)
+                # # os.remove(file_path)  # To remove the original .gz file if needed
                 print("Decompression successful.")
             except Exception as e:
                 print(f"Decompression Failed: {e}")

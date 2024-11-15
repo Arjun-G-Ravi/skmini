@@ -125,7 +125,38 @@ def load_squad(force_download=False):
     return text
 
 def load_imdb(force_download=False):
-    path = download_to_cache('https://datasets.imdbws.com/title.ratings.tsv.gz', 'imdb', force_download=force_download)
+    import os
+    path = download_to_cache(r'https://ai.stanford.edu/%7Eamaas/data/sentiment/aclImdb_v1.tar.gz', 'imdb', force_download=force_download) / 'aclImdb'
+    print(path)
+    train_path = path/ 'train'
+    test_path = path/'test'
+    def _get_review(path):
+        X = []
+        y = []
+        neg = os.listdir(path/'neg')
+        pos = os.listdir(path/'pos')
+        for f in neg:
+            # print(f)
+            with open(path/'neg'/f, 'r') as f:
+                X.append(f.read())
+                y.append(0)
+
+        for f in pos:
+            # print(f)
+            with open(path/'pos'/f, 'r') as f:
+                X.append(f.read())
+                y.append(1)
+        return X, y
+    X_train, y_train = _get_review(train_path)
+    X_test, y_test = _get_review(test_path)
+    return {
+        'data': X_train,
+        'target': y_train,
+        'target_names': [0, 1],
+        'test_data': X_test,
+        'test_target': y_test,
+    }
+
     
 
 if __name__ == '__main__':
