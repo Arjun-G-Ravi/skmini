@@ -2,7 +2,7 @@ import numpy as np
 
 
 class KNN:
-    def __init__(self, k):
+    def __init__(self, k=5):
         self.k = k
 
     def fit(self, X, y):
@@ -11,26 +11,20 @@ class KNN:
 
     def _predict_one(self, x):
         neighbours = []
+        assert x.shape == self.X[0].shape
         for x_, y_ in zip(self.X, self.y):
-            # print(i, x)
             neighbours.append((self._calc_distance(x, x_), y_))
-        print(neighbours)
         neighbours.sort()
-        print(neighbours)
-        k_nearest_neighbours = neighbours[: self.k]
+        top_k_nearest_neighbours = neighbours[: self.k] # top-k neighbours
         score = 0
-        for i in k_nearest_neighbours:
-            if i[-1] == 1:
-                score += 1
-            else:
-                score -= 1
-        if score >= 0:
-            return 1
-        else:
-            return 0
+        y_classes = set(self.y)
+        data = {k:0 for k in y_classes}
+        for i in top_k_nearest_neighbours:
+            data[i[-1]] += 1
+        return max(data, key=data.get)
 
     def _calc_distance(self, x1, x2):
-        return np.sum(np.abs(x1 - x2))
+        return (np.sum((x1 - x2)**2))**0.5
 
 
 if __name__ == "__main__":
