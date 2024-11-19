@@ -10,7 +10,7 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
        - [x] Logistic Regression
        - [ ] Classification Trees
        - [ ] SVM
-       - [ ] k-nearest neighbours
+       - [x] k-nearest neighbours
     3. Dimensionality reduction
        - [ ] PCA?
     4. Clustering
