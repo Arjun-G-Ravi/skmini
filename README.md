@@ -9,7 +9,7 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
     2. Classification
        - [x] Logistic Regression
        - [ ] Classification Trees
-       - [ ] SVM
+       - [x] SVM
        - [x] k-nearest neighbours
     3. Dimensionality reduction
        - [ ] PCA?
@@ -49,3 +49,17 @@ Sklearn is a popular machine-learning library (https://github.com/scikit-learn/s
 - [ ] Use decorator or something to initialize model and stuff in test functions
 - [ ] The download path mightnot be valid for non-linux (this could be aldready solved)
 - [ ] Add certificate verification when downloading datasets
+
+# Current LOC
+
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Python                          12             83             33            439
+Jupyter Notebook                 1              0            502            107
+Markdown                         3              7              0             62
+YAML                             2             14              8             58
+make                             1              6              7             23
+-------------------------------------------------------------------------------
+SUM:                            19            110            550            689
+-------------------------------------------------------------------------------
